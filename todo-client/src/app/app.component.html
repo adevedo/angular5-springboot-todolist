@@ -1,0 +1,33 @@
+<mat-toolbar class="main-toolbar">
+	<mat-icon class="app-logo">assignment</mat-icon>
+	<span>Todos</span>
+	<span class="fill-remaining-space"></span>
+	<input #filterText placeholder="Search..." type="text" (keyup)="filter.messageLike = filterText.value" class="filter-text" />
+	<mat-slide-toggle [checked]="filter.status === 'all'" (change)="filter.status === 'all' ? filter.status = 'new' : filter.status = 'all'">Show All</mat-slide-toggle>
+</mat-toolbar>
+<mat-divider></mat-divider>
+<mat-list class="todo-list">
+	<mat-list-item class="todo-listitem" *ngFor="let todo of todos | todofilter:filter">
+		<mat-icon matListIcon>keyboard_arrow_right</mat-icon>
+		<button mat-icon-button (click)="markDeleted(todo)"  *ngIf="todo.status !== 'completed' && todo.status !== 'deleted'">
+			<mat-icon matListIcon color="warn">clear</mat-icon>
+		</button>
+		<mat-checkbox (click)="markCompleted(todo)" *ngIf="todo.status !== 'completed' && todo.status !== 'deleted'"></mat-checkbox>
+		<h3 matLine [ngClass]="todo.status">{{todo.message}}</h3>
+		<div matLine class="dates-line">
+			<div class="created-on"><span class="label">Created:</span><span class="value">{{todo.createdOn | date:'medium'}}</span></div>
+			<div class="completed-on" *ngIf="todo.status === 'completed'"><span class="label">Completed:</span><span class="value">{{todo.updatedOn | date:'medium'}}</span></div>
+			<div class="deleted-on" *ngIf="todo.status === 'deleted'"><span class="label">Deleted:</span><span class="value">{{todo.updatedOn | date:'medium'}}</span></div>
+		</div>
+		<mat-icon *ngIf="todo.status === 'completed'">done</mat-icon>
+		<mat-divider></mat-divider>
+	</mat-list-item>
+	<mat-list-item class="todo-listitem new-todo-box">
+		<mat-icon matListIcon>keyboard_arrow_right</mat-icon>
+		<button mat-fab color="primary" class="add-new-todo" (click)="addNewTodo(newTodoText.value); newTodoText.value = ''"><mat-icon>add</mat-icon></button>
+		<h3 matLine>
+			<input #newTodoText placeholder="Type new todo here..." class="new-todo-text" (keyup.enter)="addNewTodo(newTodoText.value); newTodoText.value = ''">
+		</h3>
+		<mat-divider></mat-divider>
+	</mat-list-item>
+</mat-list>

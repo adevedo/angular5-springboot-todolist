@@ -1,0 +1,118 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+	width: 800px;
+	margin: 0px auto;
+	margin-top: 20px;
+	box-shadow: 0px 0px 2px 0px grey;
+	padding: 0px;
+	background-color: #52666f;
+	background-image:
+		url(https://www.transparenttextures.com/patterns/45-degree-fabric-light.png);
+}
+
+.app-logo {
+	font-size: 48px;
+	width: 55px !important;
+	color: #5083ff;
+	height: 55px !important;
+	line-height: 55px;
+}
+
+.todo-list {
+	background: white;
+	margin: 0px auto;
+	padding: 10px 10px 1px 10px;
+	box-shadow: 0px 0px 4px 1px black;
+}
+
+.fill-remaining-space {
+	flex: 1 1 auto;
+}
+
+.main-toolbar {
+	box-shadow: 0px 0px 4px 1px black;
+	margin-bottom: 10px;
+}
+
+.add-new-todo {
+	width: 24px !important;
+	height: 24px !important;
+	border-radius: 0px
+}
+
+.add-new-todo .mat-button-wrapper {
+	padding: 0px !important;
+	line-height: 24px;
+}
+
+.add-new-todo .mat-icon.material-icons {
+	vertical-align: inherit;
+}
+
+.todo-listitem {
+	margin-bottom: 8px;
+	box-shadow: 0px 0px 1px -1px grey;
+}
+
+.new-todo-text {
+	height: 30px;
+	width: 95%;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: 15px;
+}
+
+.new-todo-box {
+	background: #f7f6e5;
+}
+
+.todo-listitem h3.mat-line.completed {
+	color: #009800;
+}
+
+.todo-listitem h3.mat-line.deleted {
+	color: black;
+	text-decoration: line-through;
+	text-decoration-color: red;
+}
+
+.created-on {
+	color: gray;
+}
+
+.completed-on {
+	color: green;
+}
+
+.deleted-on {
+	color: red;
+}
+
+.created-on, .completed-on, .deleted-on {
+	font-size: 10px !important;
+	line-height: 20px;
+	display: inline-block;
+	margin-right: 2px;
+	background-color: #f7f7f7;
+	border-radius: 5px;
+	padding: 0px 4px 0px 4px;
+}
+
+.dates-line {
+	margin-top: 2px !important
+}
+
+.created-on .label, .completed-on .label, .deleted-on .label {
+	padding-right: 2px;
+}
+
+input.filter-text {
+	outline: none;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #e0e0e0;
+	width: 200px;
+	margin-right: 20px;
+}
